@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma, sans-serif;
+}
+
+body {
+    background: #F5F5EB;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 900px;
+}
+
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+h1 {
+    margin: 10px 20px;
+}
+
+.collapsible-item {
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item-header__label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #035AD9;
+    border-top: 1px solid gray;
+}
+
+.item-header__label::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url(images/icon-cross.png) no-repeat top center / contain;
+    text-align: center;
+    transition: all ease .5s;
+    opacity: 0;
+}
+
+.item-content {
+    display: flex;
+    justify-content: center;
+    max-height: 0;
+    padding: 0 1em;
+    background: #cecdcd;
+    transition: all ease .5s;
+}
+
+input:checked + .item-header__label::after,
+input:hover + .item-header__label::after {
+    transform: rotate(45deg);
+}
+
+input:checked ~ .item-content,
+input:hover ~ .item-content {
+    max-height: 100vh;
+    padding: 1em;
+    transition: all ease 1s;
+}
+
+input:hover ~ .item-header__label::after,
+input:checked ~ .item-header__label::after {
+    opacity: 1;
+    transition: all ease .5s;
+}
+
+@media (max-width: 425px) {
+    main {
+        width: 100%;
+    }
+}
