@@ -6,6 +6,7 @@
 
 body {
     background: #F5F5EB;
+    overflow: hidden;
 }
 
 main {
