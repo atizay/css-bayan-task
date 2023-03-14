@@ -85,3 +85,9 @@ input:checked ~ .item-header__label::after {
         width: 100%;
     }
 }
+
+@media (max-width: 1024px) {
+    main {
+        width: 100%;
+    }
+}
